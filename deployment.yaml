@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terminator
+  labels:
+    app: terminator
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: terminator
+  template:
+    metadata:
+      labels:
+        app: terminator
+    spec:
+      containers:
+        - name: app
+          image: docker.pkg.github.com/rafaelrubbioli/terminator/terminator:latest
+          imagePullPolicy: Always
+          command: ["/app/terminator"]
+          args: ["terminate", "--limit", "90", "--dry-run"]
