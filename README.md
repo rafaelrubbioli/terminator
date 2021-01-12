@@ -2,9 +2,9 @@
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
 
 # K8S OOM Terminator
-When a pod reaches `OOM` (out of memory) state, K8S sends a `SIGKILL` and immediately kills pod. This may cause some errors when the pod is processing something (like an HTTP request).
+When a pod reaches `OOM` (out of memory) state, K8S sends a `SIGKILL` and immediately kills it. This may cause some errors when the pod is processing something (like an HTTP request).
 
-Terminator is a way to mitigate that scenario. It watches pods and sends a SIGTERM when they reach the defined limit and lets them terminate gracefully.
+Terminator is a way to mitigate that scenario. It watches pods and sends a `SIGTERM` when they reach the defined limit and lets them terminate gracefully.
 
 
 ## Note
