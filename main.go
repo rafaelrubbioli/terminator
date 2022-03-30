@@ -170,7 +170,7 @@ func (t terminator) Terminate(ctx context.Context, namespace string, memoryLimit
 					podsToKill[pod.Name] = &overLimit{at: time.Now()}
 				}
 
-				log.Printf("pod < %s > (%s/%s = %.f%% over the memory limit)", pod.Name, using.String(), limit.String(), percentage)
+				log.Printf(" pod < %s > (%s/%s = %.f%% over the memory limit)", pod.Name, using.String(), limit.String(), percentage)
 				if podsToKill[pod.Name].count >= killAfter {
 					log.Printf("Deleting pod < %s > (has exceeded memory limit for %d checks)", pod.Name, killAfter)
 					if !t.dryRun {
